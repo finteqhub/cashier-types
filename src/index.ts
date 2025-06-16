@@ -73,3 +73,10 @@ type CheckIframeOptionKeys = [
 const _check: CheckOptionKeys = true;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _checkIframe: CheckIframeOptionKeys = true;
+
+export interface IFinteqHubCashier {
+  open(options?: FinteqHubCashierOptions): void;
+  close(): void;
+  onEvent(handler: (event: FinteqHubCashierEvent) => void): void;
+  setOptions(newOptions: FinteqHubCashierOptions): void;
+}
