@@ -12,11 +12,19 @@ export type FinteqHubCashierOptions = {
 
 export type FinteqHubCashierEvent = {
   type:
+    | "ERROR"
     | "IFRAME_LOADED"
     | "IFRAME_REMOVED"
     | "MESSAGE_SENT"
+    | "METHOD_SELECTED"
+    | "PAYMENT_FAILED"
+    | "PAYMENT_METHODS_LOADED"
+    | "PAYMENT_SUBMITTED"
+    | "PAYMENT_SUCCESS"
     | "WIDGET_CLOSED"
-    | "WIDGET_OPENED";
+    | "WIDGET_OPENED"
+    | "WIDGET_READY"
+    | "WIDGET_TRIGGER_CLOSE";
   payload?: Record<string, unknown>;
 };
 
