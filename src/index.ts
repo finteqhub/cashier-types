@@ -1,10 +1,12 @@
 export type FinteqHubCashierOptions = {
   backdropStyleOptions?: Record<string, string>;
-  balance?: number; // todo: add support in cashier
+  balance?: number;
+  bonuses?: { id: string; name: string; description: string }[];
   containerStyleOptions?: Record<string, string>;
   iframeUrl?: string;
   initToken?: string; // todo: add support in cashier
   locale?: string; // todo: add support in cashier
+  lotteris?: { id: string; name: string; description: string }[];
   showClose?: boolean;
   targetContainer?: HTMLElement;
   theme?: string;
@@ -24,7 +26,10 @@ export type FinteqHubCashierEvent = {
     | "WIDGET_CLOSED"
     | "WIDGET_OPENED"
     | "WIDGET_READY"
-    | "WIDGET_TRIGGER_CLOSE";
+    | "WIDGET_TRIGGER_CLOSE"
+    | "BONUSES_ACTIVATED"
+    | "BONUSES_PROMOCODE_SUBMITTED"
+    | "LOTTERIES_ACTIVATED";
   payload?: Record<string, unknown>;
 };
 
@@ -36,10 +41,12 @@ export type FinteqHubCashierMessage = {
 export const VALID_OPTION_KEYS = [
   "backdropStyleOptions",
   "balance",
+  "bonuses",
   "containerStyleOptions",
   "iframeUrl",
   "initToken",
   "locale",
+  "lotteris",
   "showClose",
   "targetContainer",
   "theme",
@@ -47,8 +54,10 @@ export const VALID_OPTION_KEYS = [
 
 export const IFRAME_OPTIONS = [
   "balance",
+  "bonuses",
   "initToken",
   "locale",
+  "lotteris",
   "showClose",
   "theme",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
