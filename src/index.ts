@@ -1,12 +1,24 @@
+export type FinteqHubCashierBonus = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export type FinteqHubCashierLottery = {
+  id: string;
+  name: string;
+  description: string;
+};
+
 export type FinteqHubCashierOptions = {
   backdropStyleOptions?: Record<string, string>;
   balance?: number;
-  bonuses?: { id: string; name: string; description: string }[];
+  bonuses?: FinteqHubCashierBonus[];
   containerStyleOptions?: Record<string, string>;
   iframeUrl?: string;
   initToken?: string; // todo: add support in cashier
   locale?: string; // todo: add support in cashier
-  lotteris?: { id: string; name: string; description: string }[];
+  lotteris?: FinteqHubCashierLottery[];
   showClose?: boolean;
   targetContainer?: HTMLElement;
   theme?: string;
