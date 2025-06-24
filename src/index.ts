@@ -18,7 +18,7 @@ export type FinteqHubCashierOptions = {
   iframeUrl?: string;
   initToken?: string; // todo: add support in cashier
   locale?: string; // todo: add support in cashier
-  lotteris?: FinteqHubCashierLottery[];
+  lotteries?: FinteqHubCashierLottery[];
   showClose?: boolean;
   targetContainer?: HTMLElement;
   theme?: string;
@@ -58,7 +58,7 @@ export const VALID_OPTION_KEYS = [
   "iframeUrl",
   "initToken",
   "locale",
-  "lotteris",
+  "lotteries",
   "showClose",
   "targetContainer",
   "theme",
@@ -69,7 +69,7 @@ export const IFRAME_OPTIONS = [
   "bonuses",
   "initToken",
   "locale",
-  "lotteris",
+  "lotteries",
   "showClose",
   "theme",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
