@@ -16,8 +16,8 @@ export type FinteqHubCashierOptions = {
   bonuses?: FinteqHubCashierBonus[];
   containerStyleOptions?: Record<string, string>;
   iframeUrl?: string;
-  initToken?: string; // todo: add support in cashier
-  locale?: string; // todo: add support in cashier
+  initToken: string;
+  locale?: string;
   lotteries?: FinteqHubCashierLottery[];
   showClose?: boolean;
   targetContainer?: HTMLElement;
