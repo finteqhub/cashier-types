@@ -48,7 +48,9 @@ export type FinteqHubCashierEvent = {
 
 export type FinteqHubCashierMessage = {
   type: "SET_OPTIONS";
-  payload?: Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>;
+  payload?: Partial<
+    Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
+  >;
 };
 
 export const VALID_OPTION_KEYS = [
