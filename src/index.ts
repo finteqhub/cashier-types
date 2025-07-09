@@ -101,8 +101,8 @@ const _check: CheckOptionKeys = true;
 const _checkIframe: CheckIframeOptionKeys = true;
 
 export interface IFinteqHubCashier {
-  open(options?: FinteqHubCashierOptions): void;
+  open(options?: Partial<FinteqHubCashierOptions>): void;
   close(): void;
   onEvent(handler: (event: FinteqHubCashierEvent) => void): void;
-  setOptions(newOptions: FinteqHubCashierOptions): void;
+  setOptions(newOptions: Partial<FinteqHubCashierOptions>): void;
 }
