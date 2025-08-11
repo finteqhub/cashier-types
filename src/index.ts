@@ -1,22 +1,36 @@
+export type FinteqHubCashierBonusCondition = {
+  minAmount: number;
+  currencyCode: string;
+  paymentMethods: string[];
+};
+
+export type FinteqHubCashierBonusAttribute = {
+  amount: number;
+  type: string;
+};
+
 export type FinteqHubCashierBonus = {
   bonusId: string;
-  conditions: Array<{
-    minAmount: number;
-    currencyCode: string;
-    paymentMethods: string[];
-  }>;
-  attributes: Array<{ amount: number; type: string }>;
+  conditions: FinteqHubCashierBonusCondition[];
+  attributes: FinteqHubCashierBonusAttribute[];
+};
+
+export type FinteqHubCashierLotteryCondition = {
+  ticketPrice: number;
+  currencyCode: string;
+  paymentMethod: string;
+  maxTickets: number;
+};
+
+export type FinteqHubCashierLotteryPrize = {
+  amount: number;
+  type: string;
 };
 
 export type FinteqHubCashierLottery = {
   lotteryId: string;
-  conditions: Array<{
-    ticketPrice: number;
-    currencyCode: string;
-    paymentMethod: string;
-    maxTickets: number;
-  }>;
-  prizes: Array<{ amount: number; type: string }>;
+  conditions: FinteqHubCashierLotteryCondition[];
+  prizes: FinteqHubCashierLotteryPrize[];
 };
 
 export type FinteqHubCashierOptions = {
