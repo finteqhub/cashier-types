@@ -1,13 +1,22 @@
 export type FinteqHubCashierBonus = {
-  id: string;
-  name: string;
-  description: string;
+  bonusId: string;
+  conditions: Array<{
+    minAmount: number;
+    currencyCode: string;
+    paymentMethods: string[];
+  }>;
+  attributes: Array<{ amount: number; type: string }>;
 };
 
 export type FinteqHubCashierLottery = {
-  id: string;
-  name: string;
-  description: string;
+  lotteryId: string;
+  conditions: Array<{
+    ticketPrice: number;
+    currencyCode: string;
+    paymentMethod: string;
+    maxTickets: number;
+  }>;
+  prizes: Array<{ amount: number; type: string }>;
 };
 
 export type FinteqHubCashierOptions = {
