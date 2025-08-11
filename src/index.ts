@@ -11,6 +11,7 @@ export type FinteqHubCashierLottery = {
 };
 
 export type FinteqHubCashierOptions = {
+  autoClose?: boolean;
   backdropStyleOptions?: Record<string, string>;
   balance?: number;
   bonuses?: FinteqHubCashierBonus[];
@@ -54,6 +55,7 @@ export type FinteqHubCashierMessage = {
 };
 
 export const VALID_OPTION_KEYS = [
+  "autoClose",
   "backdropStyleOptions",
   "balance",
   "bonuses",
