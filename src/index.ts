@@ -15,7 +15,7 @@ export type FinteqHubCashierBonus = {
   attributes: FinteqHubCashierBonusAttribute[];
 };
 
-export type FinteqHubCashierLotteryCondition = {
+export type FinteqHubCashierLotteryConditions = {
   ticketPrice: number;
   currencyCode: string;
   paymentMethod: string;
@@ -29,7 +29,7 @@ export type FinteqHubCashierLotteryPrize = {
 
 export type FinteqHubCashierLottery = {
   lotteryId: string;
-  conditions: FinteqHubCashierLotteryCondition[];
+  conditions: FinteqHubCashierLotteryConditions;
   prizes: FinteqHubCashierLotteryPrize[];
 };
 
