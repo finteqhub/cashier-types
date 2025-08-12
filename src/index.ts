@@ -18,7 +18,7 @@ export type FinteqHubCashierBonus = {
 export type FinteqHubCashierLotteryConditions = {
   ticketPrice: number;
   currencyCode: string;
-  paymentMethod: string;
+  paymentMethod: string[];
   maxTickets: number;
 };
 
