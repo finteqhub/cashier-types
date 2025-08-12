@@ -33,6 +33,8 @@ export type FinteqHubCashierLottery = {
   prizes: FinteqHubCashierLotteryPrize[];
 };
 
+export type FinteqHubCashierTheme = "light" | "dark";
+
 export type FinteqHubCashierOptions = {
   autoClose?: boolean;
   backdropStyleOptions?: Record<string, string>;
@@ -45,7 +47,7 @@ export type FinteqHubCashierOptions = {
   lotteries?: FinteqHubCashierLottery[];
   showClose?: boolean;
   targetContainer?: HTMLElement;
-  theme?: string;
+  theme?: FinteqHubCashierTheme;
   apiUrl?: string;
 };
 
