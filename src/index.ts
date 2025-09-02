@@ -73,7 +73,7 @@ export type FinteqHubCashierEvent = {
 };
 
 export type FinteqHubCashierMessage = {
-  type: "SET_OPTIONS";
+  type: "SET_OPTIONS" | "CLOSE_WIDGET";
   payload?: Partial<
     Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
   >;
