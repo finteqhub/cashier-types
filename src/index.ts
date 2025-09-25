@@ -34,9 +34,13 @@ export type FinteqHubCashierLottery = {
 };
 
 export type FinteqHubCashierTheme = "light" | "dark";
+export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
 
 export type FinteqHubCashierOptions = {
+  activeTransactionType?: FinteqHubCashierTransactionType;
+  apiUrl?: string;
   autoClose?: boolean;
+  availableTransactionTypes?: FinteqHubCashierTransactionType[];
   backdropStyleOptions?: Record<string, string>;
   balance?: number;
   bonuses?: FinteqHubCashierBonus[];
@@ -46,9 +50,9 @@ export type FinteqHubCashierOptions = {
   locale?: string;
   lotteries?: FinteqHubCashierLottery[];
   showClose?: boolean;
+  showTransactionType?: boolean;
   targetContainer?: HTMLElement;
   theme?: FinteqHubCashierTheme;
-  apiUrl?: string;
 };
 
 export type FinteqHubCashierEvent = {
@@ -80,7 +84,10 @@ export type FinteqHubCashierMessage = {
 };
 
 export const VALID_OPTION_KEYS = [
+  "activeTransactionType",
+  "apiUrl",
   "autoClose",
+  "availableTransactionTypes",
   "backdropStyleOptions",
   "balance",
   "bonuses",
@@ -90,20 +97,23 @@ export const VALID_OPTION_KEYS = [
   "locale",
   "lotteries",
   "showClose",
+  "showTransactionType",
   "targetContainer",
   "theme",
-  "apiUrl",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
 
 export const IFRAME_OPTIONS = [
+  "activeTransactionType",
+  "apiUrl",
+  "availableTransactionTypes",
   "balance",
   "bonuses",
   "initToken",
   "locale",
   "lotteries",
   "showClose",
+  "showTransactionType",
   "theme",
-  "apiUrl",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
 
 type AllOptionKeys = (typeof VALID_OPTION_KEYS)[number];
