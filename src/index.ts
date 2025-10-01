@@ -52,6 +52,7 @@ export type FinteqHubCashierOptions = {
   showClose?: boolean;
   showTransactionType?: boolean;
   targetContainer?: HTMLElement;
+  termsAndConditionsUrl?: string;
   theme?: FinteqHubCashierTheme;
 };
 
@@ -99,6 +100,7 @@ export const VALID_OPTION_KEYS = [
   "showClose",
   "showTransactionType",
   "targetContainer",
+  "termsAndConditionsUrl",
   "theme",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
 
@@ -113,6 +115,7 @@ export const IFRAME_OPTIONS = [
   "lotteries",
   "showClose",
   "showTransactionType",
+  "termsAndConditionsUrl",
   "theme",
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
 
