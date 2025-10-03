@@ -103,7 +103,7 @@ export type FinteqHubCashierEvent =
       type: "PAYMENT_FAILED";
       payload: {
         reason: string;
-        paymentMethod: string;
+        paymentMethodType: string;
         amount: string;
         currencyCode: string;
       };
@@ -115,7 +115,7 @@ export type FinteqHubCashierEvent =
   | {
       type: "PAYMENT_SUBMITTED";
       payload: {
-        paymentMethod: string;
+        paymentMethodType: string;
         amount: string;
         currencyCode: string;
       };
@@ -123,7 +123,7 @@ export type FinteqHubCashierEvent =
   | {
       type: "PAYMENT_SUCCESS";
       payload: {
-        paymentMethod: string;
+        paymentMethodType: string;
         amount: string;
         currencyCode: string;
         operationId: string;
