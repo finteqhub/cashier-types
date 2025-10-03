@@ -56,33 +56,100 @@ export type FinteqHubCashierOptions = {
   theme?: FinteqHubCashierTheme;
 };
 
-export type FinteqHubCashierEvent = {
-  type:
-    | "ERROR"
-    | "IFRAME_LOADED"
-    | "IFRAME_REMOVED"
-    | "MESSAGE_SENT"
-    | "METHOD_SELECTED"
-    | "PAYMENT_FAILED"
-    | "PAYMENT_METHODS_LOADED"
-    | "PAYMENT_SUBMITTED"
-    | "PAYMENT_SUCCESS"
-    | "WIDGET_CLOSED"
-    | "WIDGET_OPENED"
-    | "WIDGET_READY"
-    | "WIDGET_TRIGGER_CLOSE"
-    | "BONUSES_ACTIVATED"
-    | "BONUSES_PROMOCODE_SUBMITTED"
-    | "LOTTERIES_ACTIVATED";
-  payload?: Record<string, unknown>;
-};
-
 export type FinteqHubCashierMessage = {
   type: "SET_OPTIONS" | "CLOSE_WIDGET";
   payload?: Partial<
     Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
   >;
 };
+
+export type FinteqHubCashierEvent =
+  | {
+      type: "BONUSES_ACTIVATED";
+      payload: { state: boolean };
+    }
+  | {
+      type: "BONUSES_PROMOCODE_SUBMITTED";
+      payload: { promoCode: string };
+    }
+  | {
+      type: "BONUS_SELECTED";
+      payload: { bonus: FinteqHubCashierBonus; state: boolean };
+    }
+  | {
+      type: "ERROR";
+      payload: { details: unknown; reason: string };
+    }
+  | {
+      type: "IFRAME_LOADED";
+    }
+  | {
+      type: "LOTTERIES_ACTIVATED";
+      payload: { state: boolean };
+    }
+  | {
+      type: "LOTTERY_SELECTED";
+      payload: { lottery: FinteqHubCashierLottery; state: boolean };
+    }
+  | {
+      type: "MESSAGE_SENT";
+      payload: FinteqHubCashierMessage;
+    }
+  | {
+      type: "METHOD_SELECTED";
+      payload: { paymentMethodType: string };
+    }
+  | {
+      type: "PAYMENT_FAILED";
+      payload: {
+        reason: string;
+        paymentMethod: string;
+        amount: string;
+        currencyCode: string;
+      };
+    }
+  | {
+      type: "PAYMENT_METHODS_LOADED";
+      payload: { depositMethods: string[]; withdrawMethods: string[] };
+    }
+  | {
+      type: "PAYMENT_SUBMITTED";
+      payload: {
+        paymentMethod: string;
+        amount: string;
+        currencyCode: string;
+      };
+    }
+  | {
+      type: "PAYMENT_SUCCESS";
+      payload: {
+        paymentMethod: string;
+        amount: string;
+        currencyCode: string;
+        operationId: string;
+        transactionId: string;
+      };
+    }
+  | {
+      type: "STATE_CHANGED";
+      payload: {
+        paymentMethod: string;
+        amount: string;
+        currencyCode: string;
+      };
+    }
+  | {
+      type: "WIDGET_CLOSED";
+    }
+  | {
+      type: "WIDGET_OPENED";
+    }
+  | {
+      type: "WIDGET_READY";
+    }
+  | {
+      type: "WIDGET_TRIGGER_CLOSE";
+    };
 
 export const VALID_OPTION_KEYS = [
   "activeTransactionType",
