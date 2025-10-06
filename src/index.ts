@@ -96,10 +96,6 @@ export type FinteqHubCashierEvent =
       payload: FinteqHubCashierMessage;
     }
   | {
-      type: "METHOD_SELECTED";
-      payload: { paymentMethodType: string };
-    }
-  | {
       type: "PAYMENT_FAILED";
       payload: {
         reason: string;
