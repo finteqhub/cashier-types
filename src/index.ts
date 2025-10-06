@@ -98,10 +98,11 @@ export type FinteqHubCashierEvent =
   | {
       type: "PAYMENT_FAILED";
       payload: {
-        reason: string;
-        paymentMethodType: string;
         amount: string;
         currencyCode: string;
+        paymentMethodType: string;
+        reason: string;
+        transactionType: FinteqHubCashierTransactionType;
       };
     }
   | {
@@ -111,27 +112,30 @@ export type FinteqHubCashierEvent =
   | {
       type: "PAYMENT_SUBMITTED";
       payload: {
-        paymentMethodType: string;
         amount: string;
         currencyCode: string;
+        paymentMethodType: string;
+        transactionType: FinteqHubCashierTransactionType;
       };
     }
   | {
       type: "PAYMENT_SUCCESS";
       payload: {
-        paymentMethodType: string;
         amount: string;
         currencyCode: string;
         operationId: string;
+        paymentMethodType: string;
         transactionId: string;
+        transactionType: FinteqHubCashierTransactionType;
       };
     }
   | {
       type: "STATE_CHANGED";
       payload: {
-        paymentMethodType?: string;
         amount: string;
         currencyCode: string;
+        paymentMethodType?: string;
+        transactionType: FinteqHubCashierTransactionType;
       };
     }
   | {
