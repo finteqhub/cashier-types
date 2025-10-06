@@ -133,7 +133,7 @@ export type FinteqHubCashierEvent =
   | {
       type: "STATE_CHANGED";
       payload: {
-        paymentMethodType: string;
+        paymentMethodType?: string;
         amount: string;
         currencyCode: string;
       };
