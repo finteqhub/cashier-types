@@ -1,37 +1,14 @@
-export type FinteqHubCashierBonusCondition = {
-  minAmount: number;
-  currencyCode: string;
-  paymentMethods: string[];
-};
-
-export type FinteqHubCashierBonusAttribute = {
-  amount: number;
-  type: string;
-};
-
 export type FinteqHubCashierBonus = {
-  bonusId: string;
-  conditions: FinteqHubCashierBonusCondition[];
-  attributes: FinteqHubCashierBonusAttribute[];
+  description: string[];
+  details: string[];
+  id: string;
+  isActive: boolean;
+  isDisabled: boolean;
+  isSelectable: boolean;
+  title: string;
 };
 
-export type FinteqHubCashierLotteryConditions = {
-  ticketPrice: number;
-  currencyCode: string;
-  paymentMethod: string[];
-  maxTickets: number;
-};
-
-export type FinteqHubCashierLotteryPrize = {
-  amount: number;
-  type: string;
-};
-
-export type FinteqHubCashierLottery = {
-  lotteryId: string;
-  conditions: FinteqHubCashierLotteryConditions;
-  prizes: FinteqHubCashierLotteryPrize[];
-};
+export type FinteqHubCashierLottery = FinteqHubCashierBonus;
 
 export type FinteqHubCashierTheme = "light" | "dark";
 export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
@@ -132,8 +109,8 @@ export type FinteqHubCashierEvent =
   | {
       type: "STATE_CHANGED";
       payload: {
-        amount: string;
-        currencyCode: string;
+        initialAmount: string;
+        initialCurrencyCode: string;
         paymentMethodType?: string;
         transactionType: FinteqHubCashierTransactionType;
       };
