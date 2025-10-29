@@ -75,7 +75,7 @@ export type FinteqHubCashierEvent =
   | {
       type: "PAYMENT_FAILED";
       payload: {
-        operationId: string;
+        operationId?: string;
         error: string;
         details: string;
       };
