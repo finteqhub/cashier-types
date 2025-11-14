@@ -40,6 +40,16 @@ export type FinteqHubCashierMessage = {
   >;
 };
 
+export const FinteqHubCashierErrorType = {
+  CashierServerUnavailable: "CashierServerUnavailable",
+  CashierWidgetUnavailable: "CashierWidgetUnavailable",
+  CashierServerError: "CashierServerError",
+  CashierWidgetError: "CashierWidgetError",
+} as const;
+
+export type FinteqHubCashierErrorType =
+  (typeof FinteqHubCashierErrorType)[keyof typeof FinteqHubCashierErrorType];
+
 export type FinteqHubCashierEvent =
   | {
       type: "BONUSES_ACTIVATED";
@@ -55,7 +65,11 @@ export type FinteqHubCashierEvent =
     }
   | {
       type: "ERROR";
-      payload: { details: unknown; reason: string };
+      payload: {
+        error: FinteqHubCashierErrorType;
+        statusCode: number | null;
+        details: string;
+      };
     }
   | {
       type: "IFRAME_LOADED";
