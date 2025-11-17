@@ -19,7 +19,10 @@ export type FinteqHubCashierOptions = {
   autoClose?: boolean;
   availableTransactionTypes?: FinteqHubCashierTransactionType[];
   backdropStyleOptions?: Record<string, string>;
-  balance?: number;
+  balance?: {
+    total?: number;
+    withdrawable?: number;
+  };
   bonuses?: FinteqHubCashierBonus[];
   containerStyleOptions?: Record<string, string>;
   iframeUrl?: string;
