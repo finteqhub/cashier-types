@@ -94,7 +94,6 @@ export type FinteqHubCashierEvent =
       payload: {
         operationId?: string;
         error: string;
-        details: string;
       };
     }
   | {
