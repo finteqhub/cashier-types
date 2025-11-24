@@ -139,6 +139,7 @@ export type FinteqHubCashierEvent =
     };
 
 export const VALID_OPTION_KEYS = [
+  "activePromoCode",
   "activeTransactionType",
   "apiUrl",
   "autoClose",
@@ -146,11 +147,13 @@ export const VALID_OPTION_KEYS = [
   "backdropStyleOptions",
   "balance",
   "bonuses",
+  "bonusesActivated",
   "containerStyleOptions",
   "iframeUrl",
   "initToken",
   "locale",
   "lotteries",
+  "lotteriesActivated",
   "showClose",
   "showTransactionType",
   "targetContainer",
