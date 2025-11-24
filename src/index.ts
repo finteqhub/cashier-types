@@ -162,14 +162,17 @@ export const VALID_OPTION_KEYS = [
 ] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
 
 export const IFRAME_OPTIONS = [
+  "activePromoCode",
   "activeTransactionType",
   "apiUrl",
   "availableTransactionTypes",
   "balance",
   "bonuses",
+  "bonusesActivated",
   "initToken",
   "locale",
   "lotteries",
+  "lotteriesActivated",
   "showClose",
   "showTransactionType",
   "termsAndConditionsUrl",
