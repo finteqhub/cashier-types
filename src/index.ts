@@ -14,6 +14,7 @@ export type FinteqHubCashierTheme = "light" | "dark";
 export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
 
 export type FinteqHubCashierOptions = {
+  activePromoCode?: string;
   activeTransactionType?: FinteqHubCashierTransactionType;
   apiUrl?: string;
   autoClose?: boolean;
@@ -24,11 +25,13 @@ export type FinteqHubCashierOptions = {
     withdrawable?: number;
   };
   bonuses?: FinteqHubCashierBonus[];
+  bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
   iframeUrl?: string;
   initToken: string;
   locale?: string;
   lotteries?: FinteqHubCashierLottery[];
+  lotteriesActivated?: boolean;
   showClose?: boolean;
   showTransactionType?: boolean;
   targetContainer?: HTMLElement;
@@ -57,10 +60,6 @@ export type FinteqHubCashierEvent =
   | {
       type: "BONUSES_ACTIVATED";
       payload: { state: boolean };
-    }
-  | {
-      type: "BONUSES_PROMOCODE_SUBMITTED";
-      payload: { promoCode: string };
     }
   | {
       type: "BONUS_SELECTED";
@@ -108,6 +107,14 @@ export type FinteqHubCashierEvent =
       payload: {
         operationId: string;
       };
+    }
+  | {
+      type: "PROMOCODE_ADDED";
+      payload: { promoCode: string };
+    }
+  | {
+      type: "PROMOCODE_REMOVED";
+      payload: { promoCode: string };
     }
   | {
       type: "STATE_CHANGED";
