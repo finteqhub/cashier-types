@@ -14,7 +14,7 @@ export type FinteqHubCashierTheme = "light" | "dark" | "blue";
 export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
 
 export type FinteqHubCashierOptions = {
-  activePromoCode?: string;
+  activePromoCode?: string | null;
   activeTransactionType?: FinteqHubCashierTransactionType;
   apiUrl?: string;
   autoClose?: boolean;
