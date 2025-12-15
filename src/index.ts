@@ -10,7 +10,7 @@ export type FinteqHubCashierBonus = {
 
 export type FinteqHubCashierLottery = FinteqHubCashierBonus;
 
-export type FinteqHubCashierTheme = "light" | "dark";
+export type FinteqHubCashierTheme = "light" | "dark" | "blue";
 export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
 
 export type FinteqHubCashierOptions = {
