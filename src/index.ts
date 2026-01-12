@@ -101,6 +101,12 @@ export type FinteqHubCashierEvent =
     }
   | {
       type: "PAYMENT_SUBMITTED";
+      payload: {
+        initialAmount: string;
+        initialCurrencyCode: string;
+        paymentMethodType?: string;
+        transactionType: FinteqHubCashierTransactionType;
+      };
     }
   | {
       type: "PAYMENT_SUCCESS";
