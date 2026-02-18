@@ -39,12 +39,19 @@ export type FinteqHubCashierOptions = {
   theme?: FinteqHubCashierTheme;
 };
 
-export type FinteqHubCashierMessage = {
-  type: "SET_OPTIONS" | "CLOSE_WIDGET";
-  payload?: Partial<
-    Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
-  >;
-};
+export type FinteqHubCashierMessage =
+  | {
+      type: "SET_OPTIONS";
+      payload: Partial<
+        Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
+      >;
+    }
+  | {
+      type: "WIDGET_OPENED";
+    }
+  | {
+      type: "CLOSE_WIDGET";
+    };
 
 export const FinteqHubCashierErrorType = {
   CashierServerUnavailable: "CashierServerUnavailable",
