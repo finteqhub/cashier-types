@@ -27,6 +27,7 @@ export type FinteqHubCashierOptions = {
   bonuses?: FinteqHubCashierBonus[];
   bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
+  contentAlign?: "left" | "center" | "right";
   iframeUrl?: string;
   initToken: string;
   locale?: string;
@@ -162,6 +163,7 @@ export const VALID_OPTION_KEYS = [
   "bonuses",
   "bonusesActivated",
   "containerStyleOptions",
+  "contentAlign",
   "iframeUrl",
   "initToken",
   "locale",
@@ -182,6 +184,7 @@ export const IFRAME_OPTIONS = [
   "balance",
   "bonuses",
   "bonusesActivated",
+  "contentAlign",
   "initToken",
   "locale",
   "lotteries",
