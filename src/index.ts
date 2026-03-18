@@ -28,6 +28,7 @@ export type FinteqHubCashierOptions = {
   bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
   contentAlign?: "left" | "center" | "right";
+  emitTransactionUrl?: boolean;
   iframeUrl?: string;
   initToken: string;
   locale?: string;
@@ -150,6 +151,12 @@ export type FinteqHubCashierEvent =
     }
   | {
       type: "WIDGET_TRIGGER_CLOSE";
+    }
+  | {
+      type: "PAYMENT_REDIRECT";
+      payload: {
+        url: string;
+      };
     };
 
 export const VALID_OPTION_KEYS = [
@@ -164,6 +171,7 @@ export const VALID_OPTION_KEYS = [
   "bonusesActivated",
   "containerStyleOptions",
   "contentAlign",
+  "emitTransactionUrl",
   "iframeUrl",
   "initToken",
   "locale",
@@ -185,6 +193,7 @@ export const IFRAME_OPTIONS = [
   "bonuses",
   "bonusesActivated",
   "contentAlign",
+  "emitTransactionUrl",
   "initToken",
   "locale",
   "lotteries",
