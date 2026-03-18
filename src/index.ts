@@ -34,6 +34,7 @@ export type FinteqHubCashierOptions = {
   locale?: string;
   lotteries?: FinteqHubCashierLottery[];
   lotteriesActivated?: boolean;
+  parentUrl?: string;
   showClose?: boolean;
   showTransactionType?: boolean;
   targetContainer?: HTMLElement;
@@ -177,6 +178,7 @@ export const VALID_OPTION_KEYS = [
   "locale",
   "lotteries",
   "lotteriesActivated",
+  "parentUrl",
   "showClose",
   "showTransactionType",
   "targetContainer",
@@ -198,6 +200,7 @@ export const IFRAME_OPTIONS = [
   "locale",
   "lotteries",
   "lotteriesActivated",
+  "parentUrl",
   "showClose",
   "showTransactionType",
   "termsAndConditionsUrl",
