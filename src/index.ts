@@ -28,7 +28,7 @@ export type FinteqHubCashierOptions = {
   bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
   contentAlign?: "left" | "center" | "right";
-  emitTransactionUrl?: boolean;
+  transactionFlow?: "redirect" | "newWindow";
   iframeUrl?: string;
   initToken: string;
   locale?: string;
@@ -172,7 +172,7 @@ export const VALID_OPTION_KEYS = [
   "bonusesActivated",
   "containerStyleOptions",
   "contentAlign",
-  "emitTransactionUrl",
+  "transactionFlow",
   "iframeUrl",
   "initToken",
   "locale",
@@ -195,7 +195,7 @@ export const IFRAME_OPTIONS = [
   "bonuses",
   "bonusesActivated",
   "contentAlign",
-  "emitTransactionUrl",
+  "transactionFlow",
   "initToken",
   "locale",
   "lotteries",
