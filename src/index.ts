@@ -12,6 +12,7 @@ export type FinteqHubCashierLottery = FinteqHubCashierBonus;
 
 export type FinteqHubCashierTheme = "light" | "dark" | "blue";
 export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
+export type FinteqHubCashierMode = "full" | "oneClick";
 
 export type FinteqHubCashierOptions = {
   activePromoCode?: string | null;
@@ -34,6 +35,7 @@ export type FinteqHubCashierOptions = {
   locale?: string;
   lotteries?: FinteqHubCashierLottery[];
   lotteriesActivated?: boolean;
+  mode?: FinteqHubCashierMode;
   redirectUrl?: string;
   showClose?: boolean;
   showTransactionType?: boolean;
@@ -151,6 +153,9 @@ export type FinteqHubCashierEvent =
       type: "WIDGET_READY";
     }
   | {
+      type: "OPEN_FULL_WIDGET";
+    }
+  | {
       type: "WIDGET_TRIGGER_CLOSE";
     }
   | {
@@ -178,6 +183,7 @@ export const VALID_OPTION_KEYS = [
   "locale",
   "lotteries",
   "lotteriesActivated",
+  "mode",
   "redirectUrl",
   "showClose",
   "showTransactionType",
@@ -200,6 +206,7 @@ export const IFRAME_OPTIONS = [
   "locale",
   "lotteries",
   "lotteriesActivated",
+  "mode",
   "redirectUrl",
   "showClose",
   "showTransactionType",
