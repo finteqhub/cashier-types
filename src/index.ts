@@ -1,4 +1,4 @@
-export type FinteqHubCashierBonus = {
+export type CashierBonus = {
   description: string[];
   details: string[];
   id: string;
@@ -8,24 +8,24 @@ export type FinteqHubCashierBonus = {
   title: string;
 };
 
-export type FinteqHubCashierLottery = FinteqHubCashierBonus;
+export type CashierLottery = CashierBonus;
 
-export type FinteqHubCashierTheme = "light" | "dark" | "blue";
-export type FinteqHubCashierTransactionType = "deposit" | "withdrawal";
-export type FinteqHubCashierMode = "full" | "oneClick";
+export type CashierTheme = "light" | "dark" | "blue";
+export type CashierTransactionType = "deposit" | "withdrawal";
+export type CashierMode = "full" | "oneClick";
 
-export type FinteqHubCashierOptions = {
+export type CashierOptions = {
   activePromoCode?: string | null;
-  activeTransactionType?: FinteqHubCashierTransactionType;
+  activeTransactionType?: CashierTransactionType;
   apiUrl?: string;
   autoClose?: boolean;
-  availableTransactionTypes?: FinteqHubCashierTransactionType[];
+  availableTransactionTypes?: CashierTransactionType[];
   backdropStyleOptions?: Record<string, string>;
   balance?: {
     total?: number;
     withdrawable?: number;
   };
-  bonuses?: FinteqHubCashierBonus[];
+  bonuses?: CashierBonus[];
   bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
   contentAlign?: "left" | "center" | "right";
@@ -33,22 +33,22 @@ export type FinteqHubCashierOptions = {
   iframeUrl?: string;
   initToken: string;
   locale?: string;
-  lotteries?: FinteqHubCashierLottery[];
+  lotteries?: CashierLottery[];
   lotteriesActivated?: boolean;
-  mode?: FinteqHubCashierMode;
+  mode?: CashierMode;
   redirectUrl?: string;
   showClose?: boolean;
   showTransactionType?: boolean;
   targetContainer?: HTMLElement;
   termsAndConditionsUrl?: string;
-  theme?: FinteqHubCashierTheme;
+  theme?: CashierTheme;
 };
 
-export type FinteqHubCashierMessage =
+export type CashierMessage =
   | {
       type: "SET_OPTIONS";
       payload: Partial<
-        Pick<FinteqHubCashierOptions, (typeof IFRAME_OPTIONS)[number]>
+        Pick<CashierOptions, (typeof IFRAME_OPTIONS)[number]>
       >;
     }
   | {
@@ -58,29 +58,29 @@ export type FinteqHubCashierMessage =
       type: "CLOSE_WIDGET";
     };
 
-export const FinteqHubCashierErrorType = {
+export const CashierErrorType = {
   CashierServerUnavailable: "CashierServerUnavailable",
   CashierWidgetUnavailable: "CashierWidgetUnavailable",
   CashierServerError: "CashierServerError",
   CashierWidgetError: "CashierWidgetError",
 } as const;
 
-export type FinteqHubCashierErrorType =
-  (typeof FinteqHubCashierErrorType)[keyof typeof FinteqHubCashierErrorType];
+export type CashierErrorType =
+  (typeof CashierErrorType)[keyof typeof CashierErrorType];
 
-export type FinteqHubCashierEvent =
+export type CashierEvent =
   | {
       type: "BONUSES_ACTIVATED";
       payload: { state: boolean };
     }
   | {
       type: "BONUS_SELECTED";
-      payload: { bonus: FinteqHubCashierBonus; state: boolean };
+      payload: { bonus: CashierBonus; state: boolean };
     }
   | {
       type: "ERROR";
       payload: {
-        error: FinteqHubCashierErrorType;
+        error: CashierErrorType;
         statusCode: number | null;
         details: string;
       };
@@ -94,11 +94,11 @@ export type FinteqHubCashierEvent =
     }
   | {
       type: "LOTTERY_SELECTED";
-      payload: { lottery: FinteqHubCashierLottery; state: boolean };
+      payload: { lottery: CashierLottery; state: boolean };
     }
   | {
       type: "MESSAGE_SENT";
-      payload: FinteqHubCashierMessage;
+      payload: CashierMessage;
     }
   | {
       type: "PAYMENT_FAILED";
@@ -117,7 +117,7 @@ export type FinteqHubCashierEvent =
         initialAmount: string;
         initialCurrencyCode: string;
         paymentMethodType?: string;
-        transactionType: FinteqHubCashierTransactionType;
+        transactionType: CashierTransactionType;
       };
     }
   | {
@@ -140,7 +140,7 @@ export type FinteqHubCashierEvent =
         initialAmount: string;
         initialCurrencyCode: string;
         paymentMethodType?: string;
-        transactionType: FinteqHubCashierTransactionType;
+        transactionType: CashierTransactionType;
       };
     }
   | {
@@ -190,7 +190,7 @@ export const VALID_OPTION_KEYS = [
   "targetContainer",
   "termsAndConditionsUrl",
   "theme",
-] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
+] as const satisfies ReadonlyArray<keyof CashierOptions>;
 
 export const IFRAME_OPTIONS = [
   "activePromoCode",
@@ -212,20 +212,20 @@ export const IFRAME_OPTIONS = [
   "showTransactionType",
   "termsAndConditionsUrl",
   "theme",
-] as const satisfies ReadonlyArray<keyof FinteqHubCashierOptions>;
+] as const satisfies ReadonlyArray<keyof CashierOptions>;
 
 type AllOptionKeys = (typeof VALID_OPTION_KEYS)[number];
 type CheckOptionKeys = [
-  Exclude<keyof FinteqHubCashierOptions, AllOptionKeys>,
+  Exclude<keyof CashierOptions, AllOptionKeys>,
 ] extends [never]
-  ? [Exclude<AllOptionKeys, keyof FinteqHubCashierOptions>] extends [never]
+  ? [Exclude<AllOptionKeys, keyof CashierOptions>] extends [never]
     ? true
     : never
   : never;
 
 type IframeOptionKeys = (typeof IFRAME_OPTIONS)[number];
 type CheckIframeOptionKeys = [
-  Exclude<IframeOptionKeys, keyof FinteqHubCashierOptions>,
+  Exclude<IframeOptionKeys, keyof CashierOptions>,
 ] extends [never]
   ? true
   : never;
@@ -235,9 +235,9 @@ const _check: CheckOptionKeys = true;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const _checkIframe: CheckIframeOptionKeys = true;
 
-export interface IFinteqHubCashier {
-  open(options?: Partial<FinteqHubCashierOptions>): void;
+export interface ICashier {
+  open(options?: Partial<CashierOptions>): void;
   close(): void;
-  onEvent(handler: (event: FinteqHubCashierEvent) => void): void;
-  setOptions(newOptions: Partial<FinteqHubCashierOptions>): void;
+  onEvent(handler: (event: CashierEvent) => void): void;
+  setOptions(newOptions: Partial<CashierOptions>): void;
 }
