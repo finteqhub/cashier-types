@@ -56,6 +56,9 @@ export type CashierMessage =
     }
   | {
       type: "CLOSE_WIDGET";
+    }
+  | {
+      type: "PAYMENT_IFRAME_CLOSED";
     };
 
 export const CashierErrorType = {
@@ -87,6 +90,12 @@ export type CashierEvent =
     }
   | {
       type: "IFRAME_LOADED";
+    }
+  | {
+      type: "PAYMENT_IFRAME_OPEN";
+      payload: {
+        url: string;
+      };
     }
   | {
       type: "LOTTERIES_ACTIVATED";
