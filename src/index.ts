@@ -39,6 +39,7 @@ export type CashierOptions = {
   redirectUrl?: string;
   showClose?: boolean;
   showTransactionType?: boolean;
+  supportEnabled?: boolean;
   targetContainer?: HTMLElement;
   termsAndConditionsUrl?: string;
   theme?: CashierTheme;
@@ -168,6 +169,9 @@ export type CashierEvent =
       type: "WIDGET_TRIGGER_CLOSE";
     }
   | {
+      type: "OPEN_SUPPORT";
+    }
+  | {
       type: "PAYMENT_REDIRECT";
       payload: {
         url: string;
@@ -196,6 +200,7 @@ export const VALID_OPTION_KEYS = [
   "redirectUrl",
   "showClose",
   "showTransactionType",
+  "supportEnabled",
   "targetContainer",
   "termsAndConditionsUrl",
   "theme",
@@ -219,6 +224,7 @@ export const IFRAME_OPTIONS = [
   "redirectUrl",
   "showClose",
   "showTransactionType",
+  "supportEnabled",
   "termsAndConditionsUrl",
   "theme",
 ] as const satisfies ReadonlyArray<keyof CashierOptions>;
