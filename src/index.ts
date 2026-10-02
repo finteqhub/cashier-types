@@ -29,6 +29,7 @@ export type CashierOptions = {
   bonusesActivated?: boolean;
   containerStyleOptions?: Record<string, string>;
   contentAlign?: "left" | "center" | "right";
+  customerId?: string;
   transactionFlow?: "redirect" | "newWindow";
   iframeUrl?: string;
   initToken: string;
@@ -36,6 +37,7 @@ export type CashierOptions = {
   lotteries?: CashierLottery[];
   lotteriesActivated?: boolean;
   mode?: CashierMode;
+  projectId?: string;
   redirectUrl?: string;
   showClose?: boolean;
   showTransactionType?: boolean;
@@ -190,6 +192,7 @@ export const VALID_OPTION_KEYS = [
   "bonusesActivated",
   "containerStyleOptions",
   "contentAlign",
+  "customerId",
   "transactionFlow",
   "iframeUrl",
   "initToken",
@@ -197,6 +200,7 @@ export const VALID_OPTION_KEYS = [
   "lotteries",
   "lotteriesActivated",
   "mode",
+  "projectId",
   "redirectUrl",
   "showClose",
   "showTransactionType",
@@ -215,12 +219,14 @@ export const IFRAME_OPTIONS = [
   "bonuses",
   "bonusesActivated",
   "contentAlign",
+  "customerId",
   "transactionFlow",
   "initToken",
   "locale",
   "lotteries",
   "lotteriesActivated",
   "mode",
+  "projectId",
   "redirectUrl",
   "showClose",
   "showTransactionType",
