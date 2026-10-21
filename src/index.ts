@@ -10,7 +10,17 @@ export type CashierBonus = {
 
 export type CashierLottery = CashierBonus;
 
-export type CashierTheme = "light" | "dark" | "blue" | "green" | "blue-orange";
+export type CashierTheme =
+  | "light"
+  | "dark"
+  | "blue"
+  | "green"
+  | "blue-orange"
+  | "dark-red"
+  | "dark-blue-orange"
+  | "green-yellow"
+  | "purple-orange"
+  | "dark-gold";
 export type CashierTransactionType = "deposit" | "withdrawal";
 export type CashierMode = "full" | "oneClick";
 
