@@ -20,7 +20,31 @@ export type CashierTheme =
   | "dark-blue-orange"
   | "green-yellow"
   | "purple-orange"
-  | "dark-gold";
+  | "dark-gold"
+  | "dark-turquoise"
+  | "violet-orange"
+  | "slate-blue-red"
+  | "dark-red-turquoise"
+  | "navy-gold"
+  | "gray-green"
+  | "dark-sky"
+  | "dark-yellow-mint"
+  | "navy-blue"
+  | "brown-red"
+  | "light-projects"
+  | "dark-yellow-cyan"
+  | "dark-amber"
+  | "navy-orange-purple"
+  | "green-red-beige"
+  | "dark-red-orange"
+  | "navy-yellow-green"
+  | "light-blue-teal"
+  | "dark-beige-red"
+  | "slate-green"
+  | "dark-lime-violet"
+  | "brown-gold-orange"
+  | "dark-aqua";
+
 export type CashierTransactionType = "deposit" | "withdrawal";
 export type CashierMode = "full" | "oneClick";
 
