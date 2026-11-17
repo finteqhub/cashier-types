@@ -1,4 +1,4 @@
-export type CashierBonus = {
+type CashierPromotionBase = {
   description: string[];
   details: string[];
   id: string;
@@ -7,8 +7,23 @@ export type CashierBonus = {
   isSelectable: boolean;
   title: string;
 };
+type BoundaryType = 'inclusive' | 'exclusive';
+type DepositLimits = {
+  min?: {
+    amount: string;
+    boundary?: BoundaryType;
+  },
+  max?: {
+    amount: string;
+    boundary?: BoundaryType;
+  }
+};
 
-export type CashierLottery = CashierBonus;
+export type CashierBonus = CashierPromotionBase & {
+  depositLimits?: DepositLimits;
+};
+
+export type CashierLottery = CashierPromotionBase;
 
 export type CashierTheme =
   | "light"
